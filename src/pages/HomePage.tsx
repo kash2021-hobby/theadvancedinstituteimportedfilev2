@@ -92,13 +92,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 relative z-20 overflow-visible backdrop-blur-sm border border-white/20">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Started Today</h3>
-              <p className="text-gray-600 mb-6">Fill the form and we'll contact you within 24 hours</p>
-              <LeadForm
-                sourcePage="home-hero"
-                buttonText="Request Callback"
-              />
+            <div className="relative z-20">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Confident student preparing for government exams"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
+              </div>
             </div>
           </div>
         </div>
