@@ -9,16 +9,22 @@ export default function StickyContactBar() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsVisible(true);
-      } else {
+      setIsVisible(true);
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
         setIsVisible(false);
-      }
+      }, 1500);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
   }, []);
 
   return (
