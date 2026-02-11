@@ -133,7 +133,7 @@ export default function CoursesPage() {
 
                     <Link
                       to={`/courses/${course.slug}`}
-                      className="inline-flex items-center space-x-2 bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
+                      className="inline-flex items-center space-x-2 bg-primary text-white px-8 py-3 rounded-lg font-semibold transition-colors"
                     >
                       <span>View Full Details</span>
                       <ChevronRight className="w-5 h-5" />
@@ -157,11 +157,11 @@ export default function CoursesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
+              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold transition-colors"
             >
               Contact Us
             </Link>
-            <button className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary-dark transition-colors">
+            <button className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold transition-colors">
               Book Free Demo Class
             </button>
           </div>

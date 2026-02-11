@@ -18,13 +18,13 @@ export default function Footer() {
               Where learning meets employment. Expert coaching for SSC, Banking, Railway and more government exams.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400  transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400  transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="#" className="text-gray-400  transition-colors">
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -34,27 +34,27 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-sm hover:text-white transition-colors">
+                <Link to="/" className="text-sm  transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className="text-sm hover:text-white transition-colors">
+                <Link to="/courses" className="text-sm  transition-colors">
                   Our Courses
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-sm hover:text-white transition-colors">
+                <Link to="/about" className="text-sm  transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/results" className="text-sm hover:text-white transition-colors">
+                <Link to="/results" className="text-sm  transition-colors">
                   Results
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm hover:text-white transition-colors">
+                <Link to="/contact" className="text-sm  transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -65,22 +65,22 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-4">Our Courses</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/courses/rrb-ntpc" className="text-sm hover:text-white transition-colors">
+                <Link to="/courses/rrb-ntpc" className="text-sm  transition-colors">
                   RRB NTPC
                 </Link>
               </li>
               <li>
-                <Link to="/courses/ssc-cgl" className="text-sm hover:text-white transition-colors">
+                <Link to="/courses/ssc-cgl" className="text-sm  transition-colors">
                   SSC CGL
                 </Link>
               </li>
               <li>
-                <Link to="/courses/ssc-chsl" className="text-sm hover:text-white transition-colors">
+                <Link to="/courses/ssc-chsl" className="text-sm  transition-colors">
                   SSC CHSL
                 </Link>
               </li>
               <li>
-                <Link to="/courses/banking" className="text-sm hover:text-white transition-colors">
+                <Link to="/courses/banking" className="text-sm  transition-colors">
                   Banking Exams
                 </Link>
               </li>
@@ -98,13 +98,13 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+916002346625" className="text-sm hover:text-white transition-colors">
+                <a href="tel:+916002346625" className="text-sm  transition-colors">
                   +91 6002346625
                 </a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:theadvancedlearning26@gmail.com" className="text-sm hover:text-white transition-colors">
+                <a href="mailto:theadvancedlearning26@gmail.com" className="text-sm  transition-colors">
                   theadvancedlearning26@gmail.com
                 </a>
               </li>

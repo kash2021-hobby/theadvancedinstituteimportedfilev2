@@ -107,11 +107,11 @@ export default function HomePage() {
                 Structured classroom programs with small batch size, weekly tests and personalized mentoring.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary-dark transition-all hover:shadow-lg flex items-center justify-center space-x-2">
+                <button className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-lg flex items-center justify-center space-x-2">
                   <Download className="w-5 h-5" />
                   <span>Download Brochure</span>
                 </button>
-                <Link to="/contact" className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all hover:shadow-lg flex items-center justify-center space-x-2">
+                <Link to="/contact" className="bg-white text-primary px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-lg flex items-center justify-center space-x-2">
                   <Calendar className="w-5 h-5" />
                   <span>Book Free Demo Class</span>
                 </Link>
@@ -133,27 +133,27 @@ export default function HomePage() {
       <section className="py-8 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
-            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
               <Users className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Small Batches</span>
               <span className="text-xs text-gray-600">Max 20 Students</span>
             </div>
-            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
               <BookOpen className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Study Material</span>
               <span className="text-xs text-gray-600">Print + Digital</span>
             </div>
-            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
               <ClipboardCheck className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Mock Tests</span>
               <span className="text-xs text-gray-600">Full Length</span>
             </div>
-            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
               <UserCheck className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Mentoring</span>
               <span className="text-xs text-gray-600">Personalized</span>
             </div>
-            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl hover:bg-gray-50 transition-colors col-span-2 md:col-span-1">
+            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors col-span-2 md:col-span-1">
               <MapPin className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Guwahati</span>
               <span className="text-xs text-gray-600">Prime Location</span>
@@ -232,7 +232,7 @@ export default function HomePage() {
                   </div>
                   <Link
                     to={`/courses/${course.slug}`}
-                    className="block w-full text-center bg-primary text-white py-3 rounded-xl font-semibold hover:bg-primary-dark transition-all shadow-md hover:shadow-lg"
+                    className="block w-full text-center bg-primary text-white py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
                   >
                     View Details
                   </Link>
@@ -244,7 +244,7 @@ export default function HomePage() {
           <div className="text-center mt-10">
             <Link
               to="/courses"
-              className="inline-flex items-center space-x-2 text-primary font-semibold hover:text-primary-dark"
+              className="inline-flex items-center space-x-2 text-primary font-semibold"
             >
               <span>View All Courses</span>
               <ChevronRight className="w-5 h-5" />
@@ -355,7 +355,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               to="/results"
-              className="inline-flex items-center space-x-2 text-primary font-semibold text-lg hover:text-primary-dark transition-colors"
+              className="inline-flex items-center space-x-2 text-primary font-semibold text-lg transition-colors"
             >
               <span>View All Success Stories</span>
               <ChevronRight className="w-5 h-5" />
@@ -396,7 +396,7 @@ export default function HomePage() {
               <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 text-left hover:bg-gray-50 transition-colors flex justify-between items-center"
+                  className="w-full px-6 py-5 text-left transition-colors flex justify-between items-center"
                 >
                   <span className="font-semibold text-gray-900 text-lg">{faq.question}</span>
                   <ChevronRight

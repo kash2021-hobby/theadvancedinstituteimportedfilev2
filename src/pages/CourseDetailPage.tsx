@@ -295,7 +295,7 @@ export default function CourseDetailPage() {
                     <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
                       <button
                         onClick={() => setOpenSection(openSection === index ? null : index)}
-                        className="w-full px-6 py-4 bg-white hover:bg-gray-50 transition-colors flex justify-between items-center text-left"
+                        className="w-full px-6 py-4 bg-white transition-colors flex justify-between items-center text-left"
                       >
                         <span className="font-semibold text-gray-900">{section.title}</span>
                         <ChevronDown
@@ -341,12 +341,12 @@ export default function CourseDetailPage() {
                 <p className="text-4xl font-bold text-primary mb-2">{course.fees.amount}</p>
                 <p className="text-gray-600">{course.fees.installments}</p>
                 <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors">
+                  <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold transition-colors">
                     Enroll Now
                   </button>
                   <Link
                     to="/contact"
-                    className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors text-center"
+                    className="bg-white text-primary border-2 border-primary px-8 py-3 rounded-lg font-semibold transition-colors text-center"
                   >
                     Contact for Details
                   </Link>
@@ -413,7 +413,7 @@ export default function CourseDetailPage() {
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-secondary text-white px-10 py-4 rounded-lg font-semibold hover:bg-secondary-dark transition-colors"
+            className="inline-block bg-secondary text-white px-10 py-4 rounded-lg font-semibold transition-colors"
           >
             Book Free Demo Class
           </Link>

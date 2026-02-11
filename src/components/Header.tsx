@@ -41,7 +41,7 @@ export default function Header() {
                 className={`font-medium transition-colors ${
                   isActive(link.path)
                     ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
+                    : 'text-gray-700'
                 }`}
               >
                 {link.name}
@@ -49,7 +49,7 @@ export default function Header() {
             ))}
             <a
               href="tel:+916002346625"
-              className="flex items-center space-x-2 bg-secondary text-white px-6 py-2.5 rounded-lg font-medium hover:bg-secondary-dark transition-colors"
+              className="flex items-center space-x-2 bg-secondary text-white px-6 py-2.5 rounded-lg font-medium transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span>Call Now</span>
@@ -58,7 +58,7 @@ export default function Header() {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-primary"
+            className="lg:hidden p-2 text-gray-700"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -76,7 +76,7 @@ export default function Header() {
                 className={`block py-2 px-4 rounded-lg font-medium transition-colors ${
                   isActive(link.path)
                     ? 'bg-primary text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    : 'text-gray-700'
                 }`}
               >
                 {link.name}
@@ -84,7 +84,7 @@ export default function Header() {
             ))}
             <a
               href="tel:+916002346625"
-              className="flex items-center justify-center space-x-2 bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-secondary-dark transition-colors"
+              className="flex items-center justify-center space-x-2 bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span>Call Now</span>
