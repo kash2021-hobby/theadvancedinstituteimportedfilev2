@@ -70,7 +70,7 @@ export default function TabbedCourseSection() {
                 className={`w-full text-left px-6 py-4 rounded-xl transition-all font-satoshi font-normal text-base leading-[26px] ${
                   selectedCategory === 'Most Popular'
                     ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    : 'text-gray-700 hover:bg-[#004BB8] hover:text-white'
                 }`}
               >
                 Most Popular
@@ -82,7 +82,7 @@ export default function TabbedCourseSection() {
                   className={`w-full text-left px-6 py-4 rounded-xl transition-all font-satoshi font-normal text-base leading-[26px] ${
                     selectedCategory === category
                       ? 'bg-blue-600 text-white shadow-md'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      : 'text-gray-700 hover:bg-[#004BB8] hover:text-white'
                   }`}
                 >
                   {category}
@@ -130,7 +130,7 @@ export default function TabbedCourseSection() {
 
                     <Link
                       to={`/courses/${course.slug}`}
-                      className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
+                      className="block w-full text-center bg-blue-600 hover:bg-[#004BB8] text-white py-3 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg"
                     >
                       View Program
                     </Link>
@@ -150,7 +150,7 @@ export default function TabbedCourseSection() {
         <div className="text-center mt-10">
           <Link
             to="/courses"
-            className="inline-flex items-center space-x-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+            className="inline-flex items-center space-x-2 text-blue-600 font-semibold hover:text-[#004BB8] transition-colors"
           >
             <span>View All Courses</span>
             <ChevronRight className="w-5 h-5" />

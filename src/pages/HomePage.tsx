@@ -80,11 +80,11 @@ export default function HomePage() {
                 Structured classroom programs with small batch size, weekly tests and personalized mentoring.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <button className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-lg flex items-center justify-center space-x-2">
+                <button className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#004BB8] transition-all hover:shadow-lg flex items-center justify-center space-x-2">
                   <Download className="w-5 h-5" />
                   <span>Download Brochure</span>
                 </button>
-                <Link to="/contact" className="bg-white text-primary px-8 py-4 rounded-lg font-semibold transition-all hover:shadow-lg flex items-center justify-center space-x-2">
+                <Link to="/contact" className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-[#004BB8] hover:text-white transition-all hover:shadow-lg flex items-center justify-center space-x-2">
                   <Calendar className="w-5 h-5" />
                   <span>Book Free Demo Class</span>
                 </Link>
@@ -270,7 +270,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               to="/results"
-              className="inline-flex items-center space-x-2 text-primary font-semibold text-lg transition-colors"
+              className="inline-flex items-center space-x-2 text-primary font-semibold text-lg hover:text-[#004BB8] transition-colors"
             >
               <span>View All Success Stories</span>
               <ChevronRight className="w-5 h-5" />
@@ -288,7 +288,7 @@ export default function HomePage() {
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Attend a Free Demo Class This Week and experience our teaching methodology
             </p>
-            <button className="bg-gradient-to-r from-primary to-primary-dark text-white px-12 py-5 rounded-xl font-semibold hover:shadow-xl transition-all text-lg transform hover:-translate-y-1">
+            <button className="bg-gradient-to-r from-primary to-primary-dark text-white px-12 py-5 rounded-xl font-semibold hover:bg-[#004BB8] hover:shadow-xl transition-all text-lg transform hover:-translate-y-1">
               Register for Free Demo
             </button>
           </div>
@@ -311,7 +311,7 @@ export default function HomePage() {
               <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-5 text-left transition-colors flex justify-between items-center"
+                  className="w-full px-6 py-5 text-left hover:bg-[#004BB8]/5 transition-colors flex justify-between items-center"
                 >
                   <span className="font-semibold text-gray-900 text-lg">{faq.question}</span>
                   <ChevronRight

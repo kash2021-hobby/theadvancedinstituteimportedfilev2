@@ -49,7 +49,7 @@ export default function Header() {
             ))}
             <a
               href="tel:+916002346625"
-              className="flex items-center space-x-2 bg-secondary text-white px-6 py-2.5 rounded-lg font-medium transition-colors"
+              className="flex items-center space-x-2 bg-secondary text-white px-6 py-2.5 rounded-lg font-medium hover:bg-[#004BB8] transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span>Call Now</span>
@@ -84,7 +84,7 @@ export default function Header() {
             ))}
             <a
               href="tel:+916002346625"
-              className="flex items-center justify-center space-x-2 bg-secondary text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              className="flex items-center justify-center space-x-2 bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-[#004BB8] transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span>Call Now</span>

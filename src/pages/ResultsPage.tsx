@@ -119,7 +119,7 @@ export default function ResultsPage() {
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedExam === 'all'
                     ? 'bg-primary text-white'
-                    : 'bg-white text-gray-700 '
+                    : 'bg-white text-gray-700 hover:bg-[#004BB8] hover:text-white'
                 }`}
               >
                 All Exams
@@ -129,7 +129,7 @@ export default function ResultsPage() {
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedExam === 'ssc'
                     ? 'bg-primary text-white'
-                    : 'bg-white text-gray-700 '
+                    : 'bg-white text-gray-700 hover:bg-[#004BB8] hover:text-white'
                 }`}
               >
                 SSC
@@ -139,7 +139,7 @@ export default function ResultsPage() {
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedExam === 'rrb'
                     ? 'bg-primary text-white'
-                    : 'bg-white text-gray-700 '
+                    : 'bg-white text-gray-700 hover:bg-[#004BB8] hover:text-white'
                 }`}
               >
                 RRB
@@ -149,7 +149,7 @@ export default function ResultsPage() {
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedExam === 'banking'
                     ? 'bg-primary text-white'
-                    : 'bg-white text-gray-700 '
+                    : 'bg-white text-gray-700 hover:bg-[#004BB8] hover:text-white'
                 }`}
               >
                 Banking
@@ -196,13 +196,13 @@ export default function ResultsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/courses"
-              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+              className="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#004BB8] transition-colors"
             >
               Explore Courses
             </a>
             <a
               href="/contact"
-              className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+              className="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#004BB8] transition-colors"
             >
               Book Free Demo
             </a>

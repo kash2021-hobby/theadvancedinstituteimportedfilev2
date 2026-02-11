@@ -12,7 +12,7 @@ export default function LeadForm({
   sourcePage,
   showMessage = false,
   buttonText = 'Submit',
-  buttonClass = 'w-full bg-primary text-white py-3 rounded-lg font-medium transition-colors'
+  buttonClass = 'w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-[#004BB8] transition-colors'
 }: LeadFormProps) {
   const [formData, setFormData] = useState({
     fullName: '',

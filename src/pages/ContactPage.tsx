@@ -42,11 +42,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                    <a href="tel:+916002346625" className="text-gray-600 ">
+                    <a href="tel:+916002346625" className="text-gray-600 hover:text-[#004BB8] transition-colors">
                       +91 6002346625
                     </a>
                     <br />
-                    <a href="tel:+918888888888" className="text-gray-600 ">
+                    <a href="tel:+918888888888" className="text-gray-600 hover:text-[#004BB8] transition-colors">
                       +91 88888 88888
                     </a>
                   </div>
@@ -58,11 +58,11 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                    <a href="mailto:theadvancedlearning26@gmail.com" className="text-gray-600 ">
+                    <a href="mailto:theadvancedlearning26@gmail.com" className="text-gray-600 hover:text-[#004BB8] transition-colors">
                       theadvancedlearning26@gmail.com
                     </a>
                     <br />
-                    <a href="mailto:admissions@advancedlearningacademy.com" className="text-gray-600 ">
+                    <a href="mailto:admissions@advancedlearningacademy.com" className="text-gray-600 hover:text-[#004BB8] transition-colors">
                       admissions@advancedlearningacademy.com
                     </a>
                   </div>
@@ -88,19 +88,19 @@ export default function ContactPage() {
                 <div className="flex space-x-4">
                   <a
                     href="#"
-                    className="bg-primary/10 text-primary p-3 rounded-lg transition-colors"
+                    className="bg-primary/10 text-primary p-3 rounded-lg hover:bg-[#004BB8] hover:text-white transition-colors"
                   >
                     <Facebook className="w-6 h-6" />
                   </a>
                   <a
                     href="#"
-                    className="bg-primary/10 text-primary p-3 rounded-lg transition-colors"
+                    className="bg-primary/10 text-primary p-3 rounded-lg hover:bg-[#004BB8] hover:text-white transition-colors"
                   >
                     <Instagram className="w-6 h-6" />
                   </a>
                   <a
                     href="#"
-                    className="bg-primary/10 text-primary p-3 rounded-lg transition-colors"
+                    className="bg-primary/10 text-primary p-3 rounded-lg hover:bg-[#004BB8] hover:text-white transition-colors"
                   >
                     <Youtube className="w-6 h-6" />
                   </a>
@@ -159,7 +159,7 @@ export default function ContactPage() {
           <p className="text-lg text-gray-600 mb-8">
             Experience our teaching methodology firsthand. Book your free demo class today and start your preparation journey with us.
           </p>
-          <button className="bg-secondary text-white px-10 py-4 rounded-lg font-semibold transition-colors text-lg">
+          <button className="bg-secondary text-white px-10 py-4 rounded-lg font-semibold hover:bg-[#004BB8] transition-colors text-lg">
             Book Free Demo Class
           </button>
         </div>
