@@ -18,9 +18,19 @@ import LeadForm from '../components/LeadForm';
 import ShaderBackground from '../components/ui/shader-background';
 import TabbedCourseSection from '../components/TabbedCourseSection';
 import { useState } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const statsAnimation = useScrollAnimation({ direction: 'left', delay: 100 });
+  const testimonialsAnimation = useScrollAnimation({ direction: 'right', delay: 100 });
+  const whyChooseUsAnimation = useScrollAnimation({ direction: 'left', delay: 100 });
+  const programAnimation = useScrollAnimation({ direction: 'right', delay: 100 });
+  const successStoriesAnimation = useScrollAnimation({ direction: 'left', delay: 100 });
+  const ctaBannerAnimation = useScrollAnimation({ direction: 'right', delay: 100 });
+  const faqAnimation = useScrollAnimation({ direction: 'left', delay: 100 });
+  const leadFormAnimation = useScrollAnimation({ direction: 'up', delay: 100 });
 
   const whyChooseUs = [
     { icon: Award, text: 'Industry Professionals as Faculty' },
@@ -147,7 +157,7 @@ export default function HomePage() {
               Join thousands of successful students
             </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div ref={statsAnimation.ref} style={statsAnimation.style} className="grid md:grid-cols-4 gap-8">
             <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-4xl md:text-5xl font-bold text-primary mb-2">2000+</div>
               <div className="text-gray-600 font-medium">Students Trained</div>
@@ -172,7 +182,7 @@ export default function HomePage() {
 
       <section className="py-20 md:py-24 bg-gradient-to-br from-cyan-50 to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-left mb-12">
+          <div ref={testimonialsAnimation.ref} style={testimonialsAnimation.style} className="text-left mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
               Real Stories,
             </h2>
@@ -246,7 +256,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div ref={whyChooseUsAnimation.ref} style={whyChooseUsAnimation.style} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {whyChooseUs.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -279,7 +289,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div ref={programAnimation.ref} style={programAnimation.style} className="max-w-4xl mx-auto">
             {programSteps.map((step, index) => (
               <div key={index} className="flex items-start mb-8 last:mb-0 relative">
                 {index < programSteps.length - 1 && (
@@ -308,7 +318,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div ref={successStoriesAnimation.ref} style={successStoriesAnimation.style} className="grid md:grid-cols-3 gap-8">
             {[
               { name: "Rahul Sharma", exam: "SSC CGL 2023", status: "Selected", score: "Tier 1: 168/200" },
               { name: "Priya Devi", exam: "RRB NTPC 2023", status: "Selected", score: "CBT 1: 96/100" },
@@ -348,7 +358,7 @@ export default function HomePage() {
 
       <section className="py-10 md:py-12 bg-gradient-to-br from-cyan-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-cyan-100/80 to-blue-100/80 rounded-2xl shadow-lg overflow-hidden border border-cyan-200/50">
+          <div ref={ctaBannerAnimation.ref} style={ctaBannerAnimation.style} className="bg-gradient-to-br from-cyan-100/80 to-blue-100/80 rounded-2xl shadow-lg overflow-hidden border border-cyan-200/50">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center">
                 <div className="mb-4">
@@ -391,7 +401,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div ref={faqAnimation.ref} style={faqAnimation.style} className="space-y-4">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <button
@@ -419,7 +429,7 @@ export default function HomePage() {
       <section className="py-20 md:py-24 bg-gradient-to-br from-primary to-primary-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-white/5"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20 backdrop-blur-sm">
+          <div ref={leadFormAnimation.ref} style={leadFormAnimation.style} className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20 backdrop-blur-sm">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 text-center">
               Get Admission Details
             </h2>

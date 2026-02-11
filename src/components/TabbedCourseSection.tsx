@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Calendar, ChevronRight } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface Course {
   name: string;
@@ -45,6 +46,7 @@ const categories = ['RRB', 'SSC', 'Banking'];
 
 export default function TabbedCourseSection() {
   const [selectedCategory, setSelectedCategory] = useState('Most Popular');
+  const coursesAnimation = useScrollAnimation({ direction: 'up', delay: 100 });
 
   const filteredCourses = selectedCategory === 'Most Popular'
     ? courses
@@ -53,7 +55,7 @@ export default function TabbedCourseSection() {
   return (
     <section className="py-16 md:py-20" style={{ backgroundColor: '#EEF6FF' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-left mb-12">
+        <div ref={coursesAnimation.ref} style={coursesAnimation.style} className="text-left mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Our Government Exam Programs
           </h2>
