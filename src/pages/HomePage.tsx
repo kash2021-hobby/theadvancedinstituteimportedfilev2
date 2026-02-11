@@ -65,14 +65,7 @@ export default function HomePage() {
   return (
     <div>
       <section className="relative text-black py-20 md:py-32 overflow-hidden min-h-[600px] md:min-h-[700px]">
-        <div className="absolute inset-0">
-          <img
-            src="/student-image.png"
-            alt="Student learning online"
-            className="w-full h-full object-cover object-right"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/98 via-white/90 to-white/40"></div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="max-w-2xl space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
