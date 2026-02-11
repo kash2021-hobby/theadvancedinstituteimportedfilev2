@@ -94,12 +94,12 @@ export default function HomePage() {
 
             <div className="relative z-20 flex items-center justify-center">
               <img
-                src="https://images.pexels.com/photos/3771074/pexels-photo-3771074.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Confident student preparing for government exams"
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain drop-shadow-2xl"
                 style={{
-                  filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.25))',
-                  clipPath: 'inset(0 20% 0 0)'
+                  filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.3))',
+                  mixBlendMode: 'multiply'
                 }}
               />
             </div>
