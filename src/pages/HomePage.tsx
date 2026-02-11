@@ -89,7 +89,17 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="grid lg:grid-cols-2 gap-8 items-center h-full">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 items-center h-full">
+            <div className="w-full lg:hidden">
+              <div
+                className="w-full h-80 bg-cover bg-center rounded-2xl"
+                style={{
+                  backgroundImage: "url('/2bcff076-87b2-405a-b4d1-a4287e6f29c7.png')",
+                  backgroundPosition: "center top"
+                }}
+              />
+            </div>
+
             <div className="flex flex-col justify-center space-y-6 py-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900">
                 Crack Govt Exams in Guwahati with Expert-Led Coaching
@@ -124,15 +134,6 @@ export default function HomePage() {
                   <span>Book Free Demo Class</span>
                 </Link>
               </div>
-            </div>
-
-            <div className="lg:hidden">
-              <div
-                className="w-full h-64 bg-cover bg-center rounded-2xl"
-                style={{
-                  backgroundImage: "url('/2bcff076-87b2-405a-b4d1-a4287e6f29c7.png')"
-                }}
-              />
             </div>
           </div>
         </div>
