@@ -80,7 +80,7 @@ export default function ChatBot({ isOpen, onClose }: ChatBotProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-20 right-4 z-50 w-full max-w-sm transform transition-all animate-slideUp">
+    <div className="fixed bottom-14 right-4 z-50 w-full max-w-sm transform transition-all animate-slideUp">
       <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
         <div className="bg-gradient-to-r from-[#0066FF] to-[#0052CC] px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
