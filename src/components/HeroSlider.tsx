@@ -105,12 +105,16 @@ export default function HeroSlider() {
       onMouseLeave={handleMouseLeave}
     >
       {/* Background */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient} lg:block hidden transition-all duration-700`}></div>
+      <div 
+        key={`bg-${slide.id}`}
+        className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient} lg:block hidden animate-fadeIn`}
+      ></div>
 
       {/* Mobile Background */}
       <div className="absolute inset-0 lg:hidden">
         <div
-          className="absolute inset-0 bg-cover transition-all duration-700"
+          key={`mobile-${slide.id}`}
+          className="absolute inset-0 bg-cover animate-fadeIn"
           style={{
             backgroundImage: `url('${slide.personImage}')`,
             backgroundPosition: "center top"
@@ -122,7 +126,8 @@ export default function HeroSlider() {
       {/* Desktop Person Image */}
       <div className="hidden lg:block absolute inset-y-0 right-0 w-1/2">
         <div
-          className="absolute inset-0 bg-cover bg-center transition-all duration-700"
+          key={`desktop-${slide.id}`}
+          className="absolute inset-0 bg-cover bg-center animate-fadeIn"
           style={{
             backgroundImage: `url('${slide.personImage}')`,
             maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.3) 15%, black 30%)",
