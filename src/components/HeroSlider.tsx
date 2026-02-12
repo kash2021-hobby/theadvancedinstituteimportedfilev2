@@ -18,7 +18,7 @@ const slides: Slide[] = [
     id: 1,
     headline: "Crack Govt Exams in Guwahati with Expert-Led Coaching",
     subheadline: "Join India's Leading Government Exam Institute",
-    personImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    personImage: "/2bcff076-87b2-405a-b4d1-a4287e6f29c7.png",
     personName: "Expert Faculty",
     personRole: "15+ Years Experience",
     bullets: [
