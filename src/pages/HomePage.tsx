@@ -77,9 +77,10 @@ export default function HomePage() {
     <div>
       <HeroSlider />
 
-      <section className="py-8 bg-white border-b border-gray-100">
+      <section className="py-8 bg-white border-b border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
+          {/* Desktop: Normal Grid */}
+          <div className="hidden md:grid md:grid-cols-5 gap-8">
             <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
               <Users className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Small Batches</span>
@@ -100,10 +101,67 @@ export default function HomePage() {
               <span className="text-sm md:text-base font-semibold text-gray-900">Mentoring</span>
               <span className="text-xs text-gray-600">Personalized</span>
             </div>
-            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors col-span-2 md:col-span-1">
+            <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
               <MapPin className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Guwahati</span>
               <span className="text-xs text-gray-600">Prime Location</span>
+            </div>
+          </div>
+
+          {/* Mobile: Scrolling Animation */}
+          <div className="md:hidden relative">
+            <div className="flex gap-8 animate-scroll-left">
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <Users className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Small Batches</span>
+                <span className="text-xs text-gray-600">Max 20 Students</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <BookOpen className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Study Material</span>
+                <span className="text-xs text-gray-600">Print + Digital</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <ClipboardCheck className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Mock Tests</span>
+                <span className="text-xs text-gray-600">Full Length</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <UserCheck className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Mentoring</span>
+                <span className="text-xs text-gray-600">Personalized</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <MapPin className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Guwahati</span>
+                <span className="text-xs text-gray-600">Prime Location</span>
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <Users className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Small Batches</span>
+                <span className="text-xs text-gray-600">Max 20 Students</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <BookOpen className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Study Material</span>
+                <span className="text-xs text-gray-600">Print + Digital</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <ClipboardCheck className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Mock Tests</span>
+                <span className="text-xs text-gray-600">Full Length</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <UserCheck className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Mentoring</span>
+                <span className="text-xs text-gray-600">Personalized</span>
+              </div>
+              <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
+                <MapPin className="w-6 h-6 text-primary mb-2" />
+                <span className="text-sm font-semibold text-gray-900">Guwahati</span>
+                <span className="text-xs text-gray-600">Prime Location</span>
+              </div>
             </div>
           </div>
         </div>
