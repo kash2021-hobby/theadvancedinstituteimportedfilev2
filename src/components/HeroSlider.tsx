@@ -16,7 +16,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    headline: "Crack Govt Exams in Guwahati with Expert-Led Coaching",
+    headline: "Crack Govt Exams with Expert-Led Coaching",
     subheadline: "Join India's Leading Government Exam Institute",
     personImage: "/2bcff076-87b2-405a-b4d1-a4287e6f29c7.png",
     personName: "Expert Faculty",
