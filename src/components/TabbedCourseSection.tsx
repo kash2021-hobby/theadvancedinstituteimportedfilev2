@@ -120,11 +120,11 @@ export default function TabbedCourseSection() {
                     <div className="absolute inset-0 bg-black/40"></div>
                     <div className="relative text-center px-6 z-10">
                       {course.logo ? (
-                        <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-3">
+                        <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-4 p-2 overflow-hidden">
                           <img 
                             src={course.logo} 
                             alt={`${course.name} logo`}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-cover"
                           />
                         </div>
                       ) : (
