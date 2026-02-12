@@ -25,7 +25,6 @@ export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [selectedFaculty, setSelectedFaculty] = useState<number | null>(null);
 
-  const statsAnimation = useScrollAnimation({ direction: 'left', delay: 100 });
   const testimonialsAnimation = useScrollAnimation({ direction: 'right', delay: 100 });
   const whyChooseUsAnimation = useScrollAnimation({ direction: 'left', delay: 100 });
   const programAnimation = useScrollAnimation({ direction: 'right', delay: 100 });
@@ -105,37 +104,6 @@ export default function HomePage() {
               <MapPin className="w-6 h-6 text-primary mb-2" />
               <span className="text-sm md:text-base font-semibold text-gray-900">Guwahati</span>
               <span className="text-xs text-gray-600">Prime Location</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Success in Numbers
-            </h2>
-            <p className="text-lg text-gray-600">
-              Join thousands of successful students
-            </p>
-          </div>
-          <div ref={statsAnimation.ref} style={statsAnimation.style} className="grid md:grid-cols-4 gap-8">
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">2000+</div>
-              <div className="text-gray-600 font-medium">Students Trained</div>
-            </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">95%</div>
-              <div className="text-gray-600 font-medium">Success Rate</div>
-            </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">15+</div>
-              <div className="text-gray-600 font-medium">Years Experience</div>
-            </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="text-4xl md:text-5xl font-bold text-primary mb-2">500+</div>
-              <div className="text-gray-600 font-medium">Government Jobs</div>
             </div>
           </div>
         </div>
