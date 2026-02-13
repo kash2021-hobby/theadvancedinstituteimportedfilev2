@@ -233,10 +233,7 @@ export default function HeroSlider() {
         <div className="bg-white px-5 py-4 pb-24">
           <div
             key={`mobile-content-${slide.id}`}
-            className="space-y-0 transition-opacity duration-700 ease-in-out"
-            style={{
-              opacity: isTransitioning ? 0 : 1
-            }}
+            className="space-y-0"
           >
             {/* Eyebrow Text - Context Label */}
             {slide.eyebrowText && (
@@ -244,8 +241,7 @@ export default function HeroSlider() {
                 className="text-[13px] font-medium leading-[1.4] mb-3"
                 style={{
                   color: '#4A5568',
-                  letterSpacing: '-0.01em',
-                  animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out forwards' : 'none'
+                  letterSpacing: '-0.01em'
                 }}
               >
                 {slide.eyebrowText}
@@ -258,8 +254,7 @@ export default function HeroSlider() {
               style={{
                 color: '#1A202C',
                 letterSpacing: '-0.02em',
-                WebkitFontSmoothing: 'antialiased',
-                animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out 0.1s forwards' : 'none'
+                WebkitFontSmoothing: 'antialiased'
               }}
             >
               {slide.headline}
@@ -269,8 +264,7 @@ export default function HeroSlider() {
             <p
               className="text-[13px] font-normal leading-[1.5] mb-10"
               style={{
-                color: '#718096',
-                animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out 0.2s forwards' : 'none'
+                color: '#718096'
               }}
             >
               {slide.subtext}
@@ -284,8 +278,7 @@ export default function HeroSlider() {
                 background: 'linear-gradient(180deg, #0D6EFD 0%, #0A58CA 100%)',
                 letterSpacing: '0.01em',
                 lineHeight: '44px',
-                boxShadow: '0 2px 8px rgba(13, 110, 253, 0.25)',
-                animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out 0.3s forwards' : 'none'
+                boxShadow: '0 2px 8px rgba(13, 110, 253, 0.25)'
               }}
             >
               {slide.ctaText}
@@ -301,40 +294,22 @@ export default function HeroSlider() {
           <div className="w-full max-w-[600px]">
             <div
               key={`desktop-content-${slide.id}`}
-              className="space-y-0 transition-opacity duration-700 ease-in-out"
-              style={{
-                opacity: isTransitioning ? 0 : 1
-              }}
+              className="space-y-0"
             >
               {/* Eyebrow Text */}
               {slide.eyebrowText && (
-                <p
-                  className="text-[22px] font-semibold text-gray-800 leading-[1.4] mb-[14px]"
-                  style={{
-                    animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out forwards' : 'none'
-                  }}
-                >
+                <p className="text-[22px] font-semibold text-gray-800 leading-[1.4] mb-[14px]">
                   {slide.eyebrowText}
                 </p>
               )}
 
               {/* Main Heading */}
-              <h1
-                className="text-[56px] font-extrabold text-slate-900 leading-[1.15] mb-[40px] max-w-[600px]"
-                style={{
-                  animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out 0.1s forwards' : 'none'
-                }}
-              >
+              <h1 className="text-[56px] font-extrabold text-slate-900 leading-[1.15] mb-[40px] max-w-[600px]">
                 {slide.headline}
               </h1>
 
               {/* Subtext */}
-              <p
-                className="text-[20px] font-normal text-gray-600 leading-[1.6] mb-[56px]"
-                style={{
-                  animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out 0.2s forwards' : 'none'
-                }}
-              >
+              <p className="text-[20px] font-normal text-gray-600 leading-[1.6] mb-[56px]">
                 {slide.subtext}
               </p>
 
@@ -342,9 +317,6 @@ export default function HeroSlider() {
               <Link
                 to={slide.ctaLink}
                 className="inline-block w-auto bg-blue-600 text-white h-[52px] px-[28px] rounded-lg text-[16px] font-semibold hover:bg-blue-700 transition-all duration-300 hover:shadow-lg leading-[52px] text-center"
-                style={{
-                  animation: !isTransitioning ? 'fadeIn 0.7s ease-in-out 0.3s forwards' : 'none'
-                }}
               >
                 {slide.ctaText}
               </Link>
