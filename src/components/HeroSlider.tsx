@@ -126,7 +126,6 @@ export default function HeroSlider() {
   const carouselImages = slide.carouselImages || [slide.personImage];
 
   return (
-    <>
     <section
       className="relative bg-white overflow-hidden min-h-[100vh] lg:min-h-screen"
       onMouseEnter={handleMouseEnter}
@@ -343,40 +342,5 @@ export default function HeroSlider() {
         ))}
       </div>
     </section>
-
-    {/* Primary CTA Button - Sticky at Bottom (Mobile Only, Hero Section Only) */}
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white border-t border-gray-200 px-5 py-3 shadow-lg">
-      <Link
-        to={slide.ctaLink}
-        className="block w-full text-white h-[44px] rounded-lg text-[14px] font-medium transition-all duration-300 text-center"
-        style={{
-          background: 'linear-gradient(180deg, #0D6EFD 0%, #0A58CA 100%)',
-          letterSpacing: '0.01em',
-          lineHeight: '44px',
-          boxShadow: '0 2px 8px rgba(13, 110, 253, 0.25)',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = '#0A58CA';
-          e.currentTarget.style.boxShadow = '0 4px 12px rgba(13, 110, 253, 0.35)';
-          e.currentTarget.style.transform = 'translateY(-1px)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'linear-gradient(180deg, #0D6EFD 0%, #0A58CA 100%)';
-          e.currentTarget.style.boxShadow = '0 2px 8px rgba(13, 110, 253, 0.25)';
-          e.currentTarget.style.transform = 'translateY(0)';
-        }}
-        onMouseDown={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 1px 4px rgba(13, 110, 253, 0.3)';
-        }}
-        onMouseUp={(e) => {
-          e.currentTarget.style.transform = 'translateY(-1px)';
-          e.currentTarget.style.boxShadow = '0 4px 12px rgba(13, 110, 253, 0.35)';
-        }}
-      >
-        {slide.ctaText}
-      </Link>
-    </div>
-    </>
   );
 }
