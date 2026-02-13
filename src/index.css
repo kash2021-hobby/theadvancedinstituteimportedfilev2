@@ -180,7 +180,7 @@
   }
   
   .animate-scroll-left {
-    animation: scroll-left 20s linear infinite;
+    animation: scroll-left 8s linear infinite;
   }
   
   /* Reduced Motion Support - Accessibility */

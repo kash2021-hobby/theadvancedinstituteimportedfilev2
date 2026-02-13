@@ -83,27 +83,27 @@ export default function HomePage() {
           {/* Desktop: Normal Grid */}
           <div className="hidden md:grid md:grid-cols-5 gap-8">
             <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
-              <Users className="w-6 h-6 text-primary mb-2" />
+              <Users className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
               <span className="text-sm md:text-base font-semibold text-gray-900">Small Batches</span>
               <span className="text-xs text-gray-600">Max 20 Students</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
-              <BookOpen className="w-6 h-6 text-primary mb-2" />
+              <BookOpen className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
               <span className="text-sm md:text-base font-semibold text-gray-900">Study Material</span>
               <span className="text-xs text-gray-600">Print + Digital</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
-              <ClipboardCheck className="w-6 h-6 text-primary mb-2" />
+              <ClipboardCheck className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
               <span className="text-sm md:text-base font-semibold text-gray-900">Mock Tests</span>
               <span className="text-xs text-gray-600">Full Length</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
-              <UserCheck className="w-6 h-6 text-primary mb-2" />
+              <UserCheck className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
               <span className="text-sm md:text-base font-semibold text-gray-900">Mentoring</span>
               <span className="text-xs text-gray-600">Personalized</span>
             </div>
             <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors">
-              <MapPin className="w-6 h-6 text-primary mb-2" />
+              <MapPin className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
               <span className="text-sm md:text-base font-semibold text-gray-900">Guwahati</span>
               <span className="text-xs text-gray-600">Prime Location</span>
             </div>
@@ -113,53 +113,53 @@ export default function HomePage() {
           <div className="md:hidden relative">
             <div className="flex gap-8 animate-scroll-left">
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <Users className="w-6 h-6 text-primary mb-2" />
+                <Users className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Small Batches</span>
                 <span className="text-xs text-gray-600">Max 20 Students</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <BookOpen className="w-6 h-6 text-primary mb-2" />
+                <BookOpen className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Study Material</span>
                 <span className="text-xs text-gray-600">Print + Digital</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <ClipboardCheck className="w-6 h-6 text-primary mb-2" />
+                <ClipboardCheck className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Mock Tests</span>
                 <span className="text-xs text-gray-600">Full Length</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <UserCheck className="w-6 h-6 text-primary mb-2" />
+                <UserCheck className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Mentoring</span>
                 <span className="text-xs text-gray-600">Personalized</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <MapPin className="w-6 h-6 text-primary mb-2" />
+                <MapPin className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Guwahati</span>
                 <span className="text-xs text-gray-600">Prime Location</span>
               </div>
               {/* Duplicate for seamless loop */}
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <Users className="w-6 h-6 text-primary mb-2" />
+                <Users className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Small Batches</span>
                 <span className="text-xs text-gray-600">Max 20 Students</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <BookOpen className="w-6 h-6 text-primary mb-2" />
+                <BookOpen className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Study Material</span>
                 <span className="text-xs text-gray-600">Print + Digital</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <ClipboardCheck className="w-6 h-6 text-primary mb-2" />
+                <ClipboardCheck className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Mock Tests</span>
                 <span className="text-xs text-gray-600">Full Length</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <UserCheck className="w-6 h-6 text-primary mb-2" />
+                <UserCheck className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Mentoring</span>
                 <span className="text-xs text-gray-600">Personalized</span>
               </div>
               <div className="flex flex-col items-center justify-center text-center p-4 rounded-xl transition-colors min-w-[140px]">
-                <MapPin className="w-6 h-6 text-primary mb-2" />
+                <MapPin className="w-6 h-6 mb-2" style={{ color: '#0C64E5' }} />
                 <span className="text-sm font-semibold text-gray-900">Guwahati</span>
                 <span className="text-xs text-gray-600">Prime Location</span>
               </div>
