@@ -12,12 +12,18 @@ export default function StickyContactBar() {
     let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
-      setIsVisible(true);
+      const scrollPosition = window.scrollY;
 
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
+      if (scrollPosition > 200) {
+        setIsVisible(true);
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          setIsVisible(false);
+        }, 1500);
+      } else {
         setIsVisible(false);
-      }, 1500);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
