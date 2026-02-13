@@ -257,24 +257,21 @@ export default function CourseDetailPage() {
             : undefined
         }
       >
-        {courseSlug === 'rrb-ntpc' && (
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary-dark/90" />
-        )}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{course.name}</h1>
-            <p className="text-xl text-blue-50 mb-8">{course.description}</p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6" style={courseSlug === 'rrb-ntpc' ? { textShadow: '2px 2px 8px rgba(0,0,0,0.7)' } : undefined}>{course.name}</h1>
+            <p className="text-xl text-blue-50 mb-8" style={courseSlug === 'rrb-ntpc' ? { textShadow: '2px 2px 8px rgba(0,0,0,0.7)' } : undefined}>{course.description}</p>
+            <div className="flex flex-wrap justify-center gap-6" style={courseSlug === 'rrb-ntpc' ? { textShadow: '2px 2px 8px rgba(0,0,0,0.7)' } : undefined}>
               <div className="flex items-center space-x-2">
-                <Clock className="w-6 h-6" />
+                <Clock className="w-6 h-6" style={courseSlug === 'rrb-ntpc' ? { filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.7))' } : undefined} />
                 <span className="font-semibold">{course.duration}</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Users className="w-6 h-6" />
+                <Users className="w-6 h-6" style={courseSlug === 'rrb-ntpc' ? { filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.7))' } : undefined} />
                 <span className="font-semibold">Max {course.batchSize}</span>
               </div>
               <div className="flex items-center space-x-2">
-                <BookOpen className="w-6 h-6" />
+                <BookOpen className="w-6 h-6" style={courseSlug === 'rrb-ntpc' ? { filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.7))' } : undefined} />
                 <span className="font-semibold">{course.mode}</span>
               </div>
             </div>
