@@ -256,6 +256,21 @@ export default function HeroSlider() {
             >
               {slide.subtext}
             </p>
+
+            {/* CTA Button */}
+            <Link
+              to={slide.ctaLink}
+              className="block w-full text-white h-[44px] rounded-lg text-[14px] font-medium transition-all duration-300 text-center opacity-0"
+              style={{
+                background: 'linear-gradient(180deg, #0D6EFD 0%, #0A58CA 100%)',
+                letterSpacing: '0.01em',
+                lineHeight: '44px',
+                boxShadow: '0 2px 8px rgba(13, 110, 253, 0.25)',
+                animation: 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards'
+              }}
+            >
+              {slide.ctaText}
+            </Link>
           </div>
         </div>
 
