@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Calendar, ChevronRight, ChevronLeft, ChevronUp, ChevronDown } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -59,7 +59,10 @@ export default function TabbedCourseSection() {
   const [isCarouselExpanded, setIsCarouselExpanded] = useState(true);
   const coursesAnimation = useScrollAnimation({ direction: 'up', delay: 100 });
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const isTransitioningRef = useRef(false);
 
   const filteredCourses = selectedCategory === 'Most Popular'
     ? courses
@@ -69,6 +72,44 @@ export default function TabbedCourseSection() {
   const selectedIndex = allCategories.indexOf(selectedCategory);
   const categoriesBeforeSelected = allCategories.slice(0, selectedIndex);
   const categoriesAfterSelected = allCategories.slice(selectedIndex + 1);
+
+  // Create infinite loop array: [lastCourse, ...allCourses, firstCourse]
+  const carouselCourses = filteredCourses.length > 0
+    ? [filteredCourses[filteredCourses.length - 1], ...filteredCourses, filteredCourses[0]]
+    : [];
+
+  // Initialize carousel position on category change
+  useEffect(() => {
+    if (carouselRef.current && filteredCourses.length > 0) {
+      const slideWidth = carouselRef.current.offsetWidth;
+      carouselRef.current.scrollTo({
+        left: slideWidth * 1, // Start at index 1 (first real course)
+        behavior: 'auto'
+      });
+      setCurrentSlide(1);
+    }
+  }, [selectedCategory, filteredCourses.length]);
+
+  // Handle scroll events to sync currentSlide state
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const handleScroll = () => {
+      if (isTransitioningRef.current) return;
+
+      const slideWidth = carousel.offsetWidth;
+      const scrollLeft = carousel.scrollLeft;
+      const index = Math.round(scrollLeft / slideWidth);
+
+      if (index !== currentSlide) {
+        setCurrentSlide(index);
+      }
+    };
+
+    carousel.addEventListener('scroll', handleScroll, { passive: true });
+    return () => carousel.removeEventListener('scroll', handleScroll);
+  }, [currentSlide]);
 
   const scrollToSlide = (index: number, smooth = true) => {
     if (carouselRef.current) {
@@ -82,30 +123,69 @@ export default function TabbedCourseSection() {
   };
 
   const handleNext = () => {
-    if (carouselRef.current) {
+    if (carouselRef.current && !isTransitioningRef.current) {
+      isTransitioningRef.current = true;
       const nextIndex = currentSlide + 1;
       scrollToSlide(nextIndex);
 
-      // If we're at the duplicated first slide, reset to actual first slide without animation
-      if (nextIndex === filteredCourses.length) {
+      // If we're moving to the duplicated first slide, reset to actual first slide
+      if (nextIndex === carouselCourses.length - 1) {
         setTimeout(() => {
-          scrollToSlide(0, false);
+          isTransitioningRef.current = false;
+          scrollToSlide(1, false);
+        }, 300);
+      } else {
+        setTimeout(() => {
+          isTransitioningRef.current = false;
         }, 300);
       }
     }
   };
 
   const handlePrev = () => {
-    if (carouselRef.current) {
-      if (currentSlide === 0) {
-        // Jump to the duplicate last slide without animation
-        scrollToSlide(filteredCourses.length, false);
+    if (carouselRef.current && !isTransitioningRef.current) {
+      isTransitioningRef.current = true;
+      const prevIndex = currentSlide - 1;
+
+      // If we're at the first real course, go to the duplicated last course
+      if (prevIndex === 0) {
+        scrollToSlide(0);
         setTimeout(() => {
-          scrollToSlide(filteredCourses.length - 1);
-        }, 10);
+          isTransitioningRef.current = false;
+          scrollToSlide(carouselCourses.length - 2, false);
+        }, 300);
       } else {
-        scrollToSlide(currentSlide - 1);
+        scrollToSlide(prevIndex);
+        setTimeout(() => {
+          isTransitioningRef.current = false;
+        }, 300);
       }
+    }
+  };
+
+  // Touch event handlers
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrev();
     }
   };
 
@@ -161,7 +241,7 @@ export default function TabbedCourseSection() {
                       key={category}
                       onClick={() => {
                         setSelectedCategory(category);
-                        setCurrentSlide(0);
+                        setCurrentSlide(1);
                         setIsCarouselExpanded(true);
                       }}
                       className="w-full text-left px-6 py-4 rounded-xl transition-all font-satoshi font-normal text-base leading-[26px] text-gray-700 hover:bg-[#004BB8] hover:text-white"
@@ -195,8 +275,11 @@ export default function TabbedCourseSection() {
                     ref={carouselRef}
                     className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 pb-4"
                     style={{ scrollSnapType: 'x mandatory' }}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
                   >
-                    {[...filteredCourses, filteredCourses[0]].map((course, index) => (
+                    {carouselCourses.map((course, index) => (
                       <div
                         key={`${course.slug}-${index}`}
                         className="flex-shrink-0 w-full snap-center"
@@ -285,11 +368,18 @@ export default function TabbedCourseSection() {
                   {filteredCourses.length > 1 && (
                     <div className="flex justify-center gap-2 mt-4">
                       {filteredCourses.map((_, index) => {
-                        const isActive = index === currentSlide || (currentSlide === filteredCourses.length && index === 0);
+                        // Map current slide to actual course index (accounting for duplicate at start)
+                        const actualIndex = currentSlide === 0
+                          ? filteredCourses.length - 1
+                          : currentSlide === carouselCourses.length - 1
+                          ? 0
+                          : currentSlide - 1;
+
+                        const isActive = index === actualIndex;
                         return (
                           <button
                             key={index}
-                            onClick={() => scrollToSlide(index)}
+                            onClick={() => scrollToSlide(index + 1)}
                             className={`w-2 h-2 rounded-full transition-all ${
                               isActive ? 'bg-blue-600 w-6' : 'bg-gray-300'
                             }`}
@@ -311,7 +401,7 @@ export default function TabbedCourseSection() {
                       key={category}
                       onClick={() => {
                         setSelectedCategory(category);
-                        setCurrentSlide(0);
+                        setCurrentSlide(1);
                         setIsCarouselExpanded(true);
                       }}
                       className="w-full text-left px-6 py-4 rounded-xl transition-all font-satoshi font-normal text-base leading-[26px] text-gray-700 hover:bg-[#004BB8] hover:text-white"
