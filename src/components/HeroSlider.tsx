@@ -71,6 +71,8 @@ export default function HeroSlider() {
   const [isPaused, setIsPaused] = useState(false);
   const [carouselIndex, setCarouselIndex] = useState(1); // Start at middle image
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   useEffect(() => {
     if (!isAutoPlaying || isPaused) return;
@@ -90,6 +92,17 @@ export default function HeroSlider() {
   useEffect(() => {
     setCarouselIndex(1);
   }, [currentSlide]);
+
+  // Auto-rotate mobile carousel
+  useEffect(() => {
+    if (isPaused) return;
+
+    const carouselInterval = setInterval(() => {
+      handleNextCarousel();
+    }, 3500); // Rotate every 3.5 seconds
+
+    return () => clearInterval(carouselInterval);
+  }, [handleNextCarousel, isPaused]);
 
   const nextSlide = () => {
     setIsTransitioning(true);
@@ -136,6 +149,36 @@ export default function HeroSlider() {
     setCarouselIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  // Touch handlers for swipe gestures
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsPaused(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNextCarousel();
+    }
+    if (isRightSwipe) {
+      handlePrevCarousel();
+    }
+
+    // Reset touch state and resume auto-rotation after a delay
+    setTouchStart(0);
+    setTouchEnd(0);
+    setTimeout(() => setIsPaused(false), 500);
+  };
+
   const slide = slides[currentSlide];
   const carouselImages = slide.carouselImages || [slide.personImage];
 
@@ -171,7 +214,12 @@ export default function HeroSlider() {
           className="relative w-full h-[55vh] min-h-[400px] max-h-[500px] overflow-hidden flex items-center justify-center bg-white pt-16"
         >
           {/* 3D Carousel Wrapper */}
-          <div className="relative w-full h-full flex items-center justify-center [perspective:1000px] px-4">
+          <div
+            className="relative w-full h-full flex items-center justify-center [perspective:1000px] px-4"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             {carouselImages.map((image, index) => {
               const offset = index - carouselIndex;
               const total = carouselImages.length;
@@ -211,22 +259,6 @@ export default function HeroSlider() {
               );
             })}
           </div>
-
-          {/* Carousel Navigation Buttons */}
-          <button
-            onClick={handlePrevCarousel}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white p-2 rounded-full shadow-lg transition-all"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="w-5 h-5 text-gray-900" />
-          </button>
-          <button
-            onClick={handleNextCarousel}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white p-2 rounded-full shadow-lg transition-all"
-            aria-label="Next image"
-          >
-            <ChevronRight className="w-5 h-5 text-gray-900" />
-          </button>
         </div>
 
         {/* Mobile: Content Section - Clean White Background */}
