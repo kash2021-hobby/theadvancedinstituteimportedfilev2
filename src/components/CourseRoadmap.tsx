@@ -63,7 +63,8 @@ export default function CourseRoadmap({ curriculum, duration }: CourseRoadmapPro
                   isEven ? 'md:flex-row' : 'md:flex-row-reverse'
                 } items-center gap-4 md:gap-8`}
               >
-                <div className={`w-full md:w-5/12 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+                {/* Content Card - always shown on mobile, positioned based on even/odd on desktop */}
+                <div className={`w-full md:w-5/12 ${isEven ? 'md:text-right' : 'md:text-left'} ${!isEven ? 'hidden md:block' : ''}`}>
                   {isEven && (
                     <div className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex items-center gap-2 mb-3">
@@ -110,6 +111,7 @@ export default function CourseRoadmap({ curriculum, duration }: CourseRoadmapPro
                   )}
                 </div>
 
+                {/* Arrow/Icon - only shown if not the last item */}
                 {index < curriculum.length - 1 ? (
                   <div className="relative z-10 flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white border-4 border-primary rounded-full shadow-lg flex-shrink-0">
                     <ChevronDown className="w-5 h-5 md:w-6 md:h-6 text-primary" />
@@ -120,7 +122,8 @@ export default function CourseRoadmap({ curriculum, duration }: CourseRoadmapPro
                   </div>
                 )}
 
-                <div className={`w-full md:w-5/12 ${isEven ? 'md:text-left' : 'md:text-right'}`}>
+                {/* Content Card - always shown on mobile, positioned based on even/odd on desktop */}
+                <div className={`w-full md:w-5/12 ${isEven ? 'md:text-left' : 'md:text-right'} ${isEven ? 'hidden md:block' : ''}`}>
                   {!isEven && (
                     <div className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                       <div className="flex items-center gap-2 mb-3">
