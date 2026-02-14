@@ -1,5 +1,4 @@
 import { useState, FormEvent } from 'react';
-import { supabase } from '../lib/supabase';
 
 interface LeadFormProps {
   sourcePage: string;
@@ -8,6 +7,8 @@ interface LeadFormProps {
   buttonClass?: string;
   onSuccess?: () => void;
 }
+
+const API_URL = 'https://education-backend-a1ig.onrender.com';
 
 export default function LeadForm({
   sourcePage,
@@ -32,16 +33,25 @@ export default function LeadForm({
     setSubmitStatus('idle');
 
     try {
-      const { error } = await supabase.from('leads').insert({
-        full_name: formData.fullName,
-        phone: formData.phone,
-        email: formData.email || null,
-        exam_interest: formData.examInterest,
-        message: formData.message || null,
-        source_page: sourcePage,
+      const response = await fetch(`${API_URL}/api/v1/leads/ingest`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email || undefined,
+          course: formData.examInterest,
+          source: sourcePage,
+        }),
       });
 
-      if (error) throw error;
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to submit form');
+      }
 
       setSubmitStatus('success');
       setFormData({
