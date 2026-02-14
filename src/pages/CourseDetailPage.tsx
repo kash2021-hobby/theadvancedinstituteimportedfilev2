@@ -723,10 +723,9 @@ export default function CourseDetailPage() {
                   <p className="text-xs text-gray-600 mb-4">{course.duration} structured learning path</p>
 
                   <div className="relative max-h-[800px] overflow-y-auto pr-2">
-                    {/* Vertical timeline line */}
-                    <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-green-500 to-orange-500" />
-
                     <div className="space-y-4">
+                      {/* Vertical timeline line */}
+                      <div className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-blue-500 via-green-500 to-orange-500" />
                       {course.curriculum.map((month, index) => {
                         const phaseColors: Record<string, string> = {
                           'Foundation Building': 'bg-blue-100 border-blue-500 text-blue-700',
