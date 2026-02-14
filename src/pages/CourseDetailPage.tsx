@@ -749,9 +749,9 @@ export default function CourseDetailPage() {
                             <div className="absolute left-2.5 top-2 w-3 h-3 bg-white border-2 border-primary rounded-full z-10" />
 
                             <div className="bg-gray-50 rounded-lg p-3 hover:shadow-md transition-shadow">
-                              <div className="flex items-center justify-between mb-2">
+                              <div className="flex flex-col gap-1 mb-2">
                                 <span className="text-xs font-bold text-gray-900">Month {month.month}</span>
-                                <span className={`text-xs px-2 py-0.5 rounded-full border ${colorClass}`}>
+                                <span className={`text-[10px] px-2 py-0.5 rounded-full border ${colorClass} w-fit whitespace-nowrap`}>
                                   {month.phase}
                                 </span>
                               </div>
@@ -759,10 +759,10 @@ export default function CourseDetailPage() {
                               {/* Focus Areas */}
                               <div className="mb-2">
                                 <p className="text-xs text-gray-700 font-medium mb-1">Focus Areas:</p>
-                                <ul className="text-xs text-gray-600 space-y-0.5">
+                                <ul className="text-[11px] text-gray-600 space-y-0.5">
                                   {month.focusAreas.map((area, i) => (
                                     <li key={i} className="flex items-start gap-1.5">
-                                      <span className="text-primary mt-0.5">•</span>
+                                      <span className="text-primary mt-0.5 flex-shrink-0">•</span>
                                       <span className="leading-relaxed">{area}</span>
                                     </li>
                                   ))}
@@ -772,10 +772,10 @@ export default function CourseDetailPage() {
                               {/* Activities */}
                               <div className="mb-2">
                                 <p className="text-xs text-gray-700 font-medium mb-1">Activities:</p>
-                                <ul className="text-xs text-gray-600 space-y-0.5">
+                                <ul className="text-[11px] text-gray-600 space-y-0.5">
                                   {month.activities.map((activity, i) => (
                                     <li key={i} className="flex items-start gap-1.5">
-                                      <span className="text-gray-400 mt-0.5">▪</span>
+                                      <span className="text-gray-400 mt-0.5 flex-shrink-0">▪</span>
                                       <span className="leading-relaxed">{activity}</span>
                                     </li>
                                   ))}
@@ -785,7 +785,7 @@ export default function CourseDetailPage() {
                               {/* Milestone */}
                               <div className={`${colorClass.split(' ')[0]} rounded-lg p-2 mt-2`}>
                                 <p className="text-xs text-gray-700 font-medium mb-0.5">Milestone:</p>
-                                <p className="text-xs text-gray-800 leading-relaxed">{month.milestones}</p>
+                                <p className="text-[11px] text-gray-800 leading-relaxed">{month.milestones}</p>
                               </div>
                             </div>
                           </div>
