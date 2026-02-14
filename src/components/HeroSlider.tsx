@@ -93,17 +93,6 @@ export default function HeroSlider() {
     setCarouselIndex(1);
   }, [currentSlide]);
 
-  // Auto-rotate mobile carousel
-  useEffect(() => {
-    if (isPaused) return;
-
-    const carouselInterval = setInterval(() => {
-      handleNextCarousel();
-    }, 3500); // Rotate every 3.5 seconds
-
-    return () => clearInterval(carouselInterval);
-  }, [handleNextCarousel, isPaused]);
-
   const nextSlide = () => {
     setIsTransitioning(true);
     setTimeout(() => {
@@ -148,6 +137,17 @@ export default function HeroSlider() {
     const images = slides[currentSlide].carouselImages || [slides[currentSlide].personImage];
     setCarouselIndex((prev) => (prev - 1 + images.length) % images.length);
   };
+
+  // Auto-rotate mobile carousel
+  useEffect(() => {
+    if (isPaused) return;
+
+    const carouselInterval = setInterval(() => {
+      handleNextCarousel();
+    }, 3500); // Rotate every 3.5 seconds
+
+    return () => clearInterval(carouselInterval);
+  }, [handleNextCarousel, isPaused]);
 
   // Touch handlers for swipe gestures
   const handleTouchStart = (e: React.TouchEvent) => {
