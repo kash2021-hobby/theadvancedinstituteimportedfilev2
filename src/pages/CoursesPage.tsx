@@ -85,10 +85,10 @@ export default function CoursesPage() {
                 className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-primary hover:shadow-2xl transition-all"
               >
                 <div className="md:flex">
-                  <div className="md:w-1/3 bg-gradient-to-br from-primary to-primary-dark p-8 flex flex-col justify-center items-center text-white relative overflow-hidden">
+                  <div className={`md:w-1/3 p-8 flex flex-col justify-center items-center text-white relative overflow-hidden ${course.slug === 'rrb-ntpc' ? 'bg-gray-900' : 'bg-gradient-to-br from-primary to-primary-dark'}`}>
                     {course.slug === 'rrb-ntpc' ? (
                       <>
-                        <div className="absolute inset-0 opacity-20">
+                        <div className="absolute inset-0 opacity-50">
                           <img
                             src="/train-background.webp"
                             alt="Train background"
