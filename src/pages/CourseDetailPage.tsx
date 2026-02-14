@@ -758,7 +758,7 @@ export default function CourseDetailPage() {
 
                               {/* Focus Areas */}
                               <div className="mb-2">
-                                <p className="text-xs text-gray-700 font-medium mb-1">Focus Areas:</p>
+                                <p className="text-xs font-medium mb-1" style={{ color: '#1D4ED8' }}>Focus Areas:</p>
                                 <ul className="text-[11px] text-gray-600 space-y-0.5">
                                   {month.focusAreas.map((area, i) => (
                                     <li key={i} className="flex items-start gap-1.5">
@@ -771,7 +771,7 @@ export default function CourseDetailPage() {
 
                               {/* Activities */}
                               <div className="mb-2">
-                                <p className="text-xs text-gray-700 font-medium mb-1">Activities:</p>
+                                <p className="text-xs font-medium mb-1" style={{ color: '#1D4ED8' }}>Activities:</p>
                                 <ul className="text-[11px] text-gray-600 space-y-0.5">
                                   {month.activities.map((activity, i) => (
                                     <li key={i} className="flex items-start gap-1.5">
