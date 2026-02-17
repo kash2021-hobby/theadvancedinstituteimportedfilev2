@@ -619,7 +619,7 @@ export default function CourseDetailPage() {
             <div className="lg:col-span-2 space-y-12">
               {/* Video Section */}
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Course Introduction</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Course Introduction</h2>
                 <div
                   className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-gray-300"
                   style={
@@ -685,12 +685,12 @@ export default function CourseDetailPage() {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Course Overview</h2>
-                <p className="text-gray-700 leading-relaxed">{course.overview}</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center md:text-left">Course Overview</h2>
+                <p className="text-gray-700 leading-relaxed text-center md:text-left">{course.overview}</p>
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold mb-6">
+                <h2 className="text-3xl font-bold mb-6 text-center md:text-left">
                   <span className="text-gray-900">Course </span>
                   <span className="text-[#004BB8]">Highlights</span>
                 </h2>
@@ -705,7 +705,7 @@ export default function CourseDetailPage() {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Detailed Syllabus</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Detailed Syllabus</h2>
                 <div className="space-y-3">
                   {course.syllabus.map((section, index) => (
                     <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
@@ -741,27 +741,27 @@ export default function CourseDetailPage() {
 
               {course.examPattern && (
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Exam Pattern</h2>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Exam Pattern</h2>
                   {courseSlug === 'rrb-ntpc' && (
-                    <p className="text-gray-700 mb-6 text-sm md:text-base">
+                    <p className="text-gray-700 mb-6 text-sm md:text-base text-center md:text-left">
                       The RRB NTPC 2025-26 exam will be conducted in two stages: Stage 1 (Preliminary) and Stage 2 (Main).
                       The RRB NTPC Stage 1 and Stage 2 have the same syllabus, but the exam pattern is different.
                     </p>
                   )}
                   {courseSlug === 'ssc-cgl' && (
-                    <p className="text-gray-700 mb-6 text-sm md:text-base">
+                    <p className="text-gray-700 mb-6 text-sm md:text-base text-center md:text-left">
                       The SSC CGL exam is conducted in four tiers. Tier 1 and Tier 2 are computer-based exams,
                       Tier 3 is a descriptive paper (pen and paper mode), and Tier 4 includes skill tests.
                     </p>
                   )}
                   {courseSlug === 'ssc-chsl' && (
-                    <p className="text-gray-700 mb-6 text-sm md:text-base">
+                    <p className="text-gray-700 mb-6 text-sm md:text-base text-center md:text-left">
                       The SSC CHSL exam is conducted in three tiers. Tier 1 is a computer-based exam,
                       Tier 2 is a descriptive paper, and Tier 3 is a skill test (typing test).
                     </p>
                   )}
                   {courseSlug === 'banking' && (
-                    <p className="text-gray-700 mb-6 text-sm md:text-base">
+                    <p className="text-gray-700 mb-6 text-sm md:text-base text-center md:text-left">
                       Banking exams (IBPS/SBI) are typically conducted in two stages: Preliminary and Mains.
                       The preliminary exam is a qualifying exam, while mains includes both objective and descriptive papers.
                     </p>
@@ -820,7 +820,7 @@ export default function CourseDetailPage() {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Batch Timings</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center md:text-left">Batch Timings</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {course.batchTimings.map((timing, index) => (
                     <div key={index} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
