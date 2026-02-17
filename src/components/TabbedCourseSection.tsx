@@ -63,6 +63,8 @@ export default function TabbedCourseSection() {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const isTransitioningRef = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isUserInteractingRef = useRef(false);
 
   const filteredCourses = selectedCategory === 'Most Popular'
     ? courses
@@ -90,10 +92,10 @@ export default function TabbedCourseSection() {
     }
   }, [selectedCategory, filteredCourses.length]);
 
-  // Handle scroll events to sync currentSlide state
+  // Handle scroll events to sync currentSlide state and implement infinite loop
   useEffect(() => {
     const carousel = carouselRef.current;
-    if (!carousel) return;
+    if (!carousel || filteredCourses.length <= 1) return;
 
     const handleScroll = () => {
       if (isTransitioningRef.current) return;
@@ -105,11 +107,54 @@ export default function TabbedCourseSection() {
       if (index !== currentSlide) {
         setCurrentSlide(index);
       }
+
+      // Clear previous timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // Set a timeout to detect when scrolling has stopped
+      scrollTimeoutRef.current = setTimeout(() => {
+        // Only reset position if user is not currently interacting
+        if (isUserInteractingRef.current) return;
+
+        const currentIndex = Math.round(carousel.scrollLeft / slideWidth);
+
+        // If at the duplicate last slide (index 0), jump to real last slide
+        if (currentIndex === 0) {
+          isTransitioningRef.current = true;
+          carousel.scrollTo({
+            left: slideWidth * (carouselCourses.length - 2),
+            behavior: 'auto'
+          });
+          setCurrentSlide(carouselCourses.length - 2);
+          setTimeout(() => {
+            isTransitioningRef.current = false;
+          }, 50);
+        }
+        // If at the duplicate first slide (last index), jump to real first slide
+        else if (currentIndex === carouselCourses.length - 1) {
+          isTransitioningRef.current = true;
+          carousel.scrollTo({
+            left: slideWidth * 1,
+            behavior: 'auto'
+          });
+          setCurrentSlide(1);
+          setTimeout(() => {
+            isTransitioningRef.current = false;
+          }, 50);
+        }
+      }, 150); // Wait 150ms after scroll stops
     };
 
     carousel.addEventListener('scroll', handleScroll, { passive: true });
-    return () => carousel.removeEventListener('scroll', handleScroll);
-  }, [currentSlide]);
+    return () => {
+      carousel.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [currentSlide, carouselCourses.length, filteredCourses.length]);
 
   const scrollToSlide = (index: number, smooth = true) => {
     if (carouselRef.current) {
@@ -167,6 +212,7 @@ export default function TabbedCourseSection() {
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: React.TouchEvent) => {
+    isUserInteractingRef.current = true;
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -176,17 +222,30 @@ export default function TabbedCourseSection() {
   };
 
   const onTouchEnd = () => {
+    isUserInteractingRef.current = false;
+
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe) {
-      handleNext();
-    } else if (isRightSwipe) {
-      handlePrev();
-    }
+    // Don't use handleNext/handlePrev for touch swipes
+    // Let the native scroll behavior with snap points handle it
+    // The infinite loop will be handled by the scroll event listener
+  };
+
+  // Mouse event handlers for desktop drag support
+  const onMouseDown = () => {
+    isUserInteractingRef.current = true;
+  };
+
+  const onMouseUp = () => {
+    isUserInteractingRef.current = false;
+  };
+
+  const onMouseLeave = () => {
+    isUserInteractingRef.current = false;
   };
 
   return (
@@ -278,6 +337,9 @@ export default function TabbedCourseSection() {
                     onTouchStart={onTouchStart}
                     onTouchMove={onTouchMove}
                     onTouchEnd={onTouchEnd}
+                    onMouseDown={onMouseDown}
+                    onMouseUp={onMouseUp}
+                    onMouseLeave={onMouseLeave}
                   >
                     {carouselCourses.map((course, index) => (
                       <div
